@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Podcast 20-10 · AxsPlano & SDA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rose-deep: #8f2d45;
+      --rose: #c45b72;
+      --blush: #f7e4e8;
+      --blush-soft: #fdf6f7;
+      --ink: #24161a;
+      --ink-soft: #5c4550;
+      --line: rgba(143, 45, 69, 0.16);
+      --cream-glow: #fff8f6;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Be Vietnam Pro", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 700px at 12% -10%, rgba(196, 91, 114, 0.18), transparent 55%),
+        radial-gradient(900px 600px at 100% 8%, rgba(143, 45, 69, 0.12), transparent 50%),
+        linear-gradient(180deg, var(--blush-soft) 0%, var(--cream-glow) 42%, #fff 100%);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      transform: scale(1.06);
+      animation: kenburns 18s ease-in-out infinite alternate;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(36, 22, 26, 0.15) 0%, rgba(36, 22, 26, 0.25) 35%, rgba(36, 22, 26, 0.78) 100%);
+    }
+
+    @keyframes kenburns {
+      from { transform: scale(1.04) translate3d(0, 0, 0); }
+      to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: clamp(1.5rem, 4vw, 3.5rem);
+      max-width: 920px;
+      animation: rise 900ms cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 8vw, 5.4rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+      text-wrap: balance;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 0.42em;
+      font-weight: 500;
+      opacity: 0.88;
+      letter-spacing: 0.04em;
+      margin-top: 0.35em;
+    }
+
+    .hero h1 {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+      max-width: 28ch;
+      margin-bottom: 0.55rem;
+    }
+
+    .hero p.lead {
+      max-width: 38ch;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.98rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 999px;
+      padding: 0.9rem 1.35rem;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--rose-deep);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45);
+      animation: softpulse 2.4s ease-in-out 1.2s 2;
+    }
+
+    @keyframes softpulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35); }
+      50% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
+
+    .meta-pill {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.78);
+      letter-spacing: 0.02em;
+    }
+
+    main {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3rem 0 4.5rem;
+    }
+
+    .player-section {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: -3.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (min-width: 880px) {
+      .player-section {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: stretch;
+        margin-top: -4.5rem;
+      }
+    }
+
+    .stage {
+      position: relative;
+      border-radius: 1.35rem;
+      overflow: hidden;
+      min-height: 420px;
+      background: var(--ink);
+      isolation: isolate;
+    }
+
+    .stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 700ms ease, transform 1.2s ease;
+    }
+
+    .stage img.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    .stage-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 1.25rem 1.35rem;
+      background: linear-gradient(180deg, transparent, rgba(36, 22, 26, 0.78));
+      color: #fff;
+    }
+
+    .stage-caption small {
+      display: block;
+      opacity: 0.75;
+      font-size: 0.78rem;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .stage-caption strong {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .controls {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 1.35rem;
+      padding: 1.4rem 1.35rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .controls h2 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 500;
+      color: var(--rose-deep);
+    }
+
+    .controls .ep-meta {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      margin-top: -0.35rem;
+    }
+
+    .progress-wrap {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .progress {
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(143, 45, 69, 0.15);
+      cursor: pointer;
+    }
+
+    .progress::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--rose-deep);
+      border: 2px solid #fff;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .transport {
+      display: flex;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    .transport .btn-primary {
+      animation: none;
+      min-width: 7.5rem;
+    }
+
+    .segment-list {
+      list-style: none;
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.25rem;
+    }
+
+    .segment-list button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid transparent;
+      background: transparent;
+      border-radius: 0.85rem;
+      padding: 0.7rem 0.8rem;
+      cursor: pointer;
+      font-family: var(--font-body);
+      color: var(--ink);
+      transition: background 160ms ease, border-color 160ms ease;
+    }
+
+    .segment-list button:hover,
+    .segment-list button.active {
+      background: rgba(196, 91, 114, 0.1);
+      border-color: rgba(143, 45, 69, 0.18);
+    }
+
+    .segment-list .seg-title {
+      display: block;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .segment-list .seg-time {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+
+    .wishes {
+      margin-top: 3.25rem;
+    }
+
+    .wishes > header {
+      margin-bottom: 1.4rem;
+      max-width: 36rem;
+    }
+
+    .wishes > header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 500;
+      color: var(--rose-deep);
+      margin-bottom: 0.45rem;
+    }
+
+    .wishes > header p {
+      color: var(--ink-soft);
+    }
+
+    .wish-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 760px) {
+      .wish-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .wish-card {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+
+    .wish-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.55rem;
+    }
+
+    .wish-card p {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .gallery {
+      margin-top: 3.5rem;
+    }
+
+    .gallery header {
+      margin-bottom: 1.1rem;
+    }
+
+    .gallery h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+      font-weight: 500;
+      color: var(--rose-deep);
+    }
+
+    .gallery-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(220px, 28vw);
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .gallery-strip figure {
+      margin: 0;
+      scroll-snap-align: start;
+      border-radius: 1rem;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      position: relative;
+    }
+
+    .gallery-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+
+    .gallery-strip figure:hover img {
+      transform: scale(1.04);
+    }
+
+    footer.site {
+      border-top: 1px solid var(--line);
+      margin-top: 3rem;
+      padding: 1.75rem 0 0.5rem;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      justify-content: space-between;
+    }
+
+    footer.site strong {
+      color: var(--rose-deep);
+      font-family: var(--font-display);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="images/web/01.jpg" alt="" />
+    </div>
+    <div class="hero-content">
+      <p class="brand">AxsPlano &amp; SDA<span>Podcast đặc biệt · 20 · 10</span></p>
+      <h1>Lời chúc ngày Phụ nữ Việt Nam</h1>
+      <p class="lead">Một tập ngắn với lời cảm ơn chân thành và khoảnh khắc trao quà trong team.</p>
+      <div class="cta-row">
+        <button class="btn btn-primary" id="heroPlay" type="button">Phát podcast</button>
+        <a class="btn btn-ghost" href="#loi-chuc">Xem lời chúc</a>
+        <span class="meta-pill">~ 1 phút 19 giây</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="player-section" aria-label="Trình phát podcast">
+      <div class="stage" id="stage">
+        <img class="active" src="images/web/01.jpg" alt="Khoảnh khắc team 20-10" data-index="0" />
+        <img src="images/web/02.jpg" alt="Khoảnh khắc team 20-10" data-index="1" />
+        <img src="images/web/03.jpg" alt="Khoảnh khắc team 20-10" data-index="2" />
+        <img src="images/web/04.jpg" alt="Khoảnh khắc team 20-10" data-index="3" />
+        <img src="images/web/05.jpg" alt="Khoảnh khắc team 20-10" data-index="4" />
+        <div class="stage-caption">
+          <small id="segLabel">Phần 1</small>
+          <strong id="segTitle">Mở đầu</strong>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div>
+          <h2>Nghe tập 20-10</h2>
+          <p class="ep-meta">AxsPlano &amp; SDA · Lời chúc &amp; hình ảnh team</p>
+        </div>
+
+        <audio id="audio" preload="metadata" src="audio/podcast-full.mp3"></audio>
+
+        <div class="progress-wrap">
+          <input class="progress" id="seek" type="range" min="0" max="1000" value="0" aria-label="Tiến độ phát" />
+          <div class="time-row">
+            <span id="currentTime">0:00</span>
+            <span id="duration">1:19</span>
+          </div>
+        </div>
+
+        <div class="transport">
+          <button class="btn btn-primary" id="playBtn" type="button">Phát</button>
+          <button class="btn btn-ghost" id="backBtn" type="button" style="color:var(--rose-deep);border-color:var(--line)">−10s</button>
+          <button class="btn btn-ghost" id="fwdBtn" type="button" style="color:var(--rose-deep);border-color:var(--line)">+10s</button>
+        </div>
+
+        <ul class="segment-list" id="segments"></ul>
+      </div>
+    </section>
+
+    <section class="wishes" id="loi-chuc">
+      <header>
+        <h2>Lời chúc từ AxsPlano &amp; SDA</h2>
+        <p>Gửi đến tất cả chị em trong team nhân ngày Phụ nữ Việt Nam 20/10.</p>
+      </header>
+      <div class="wish-grid" id="wishGrid"></div>
+    </section>
+
+    <section class="gallery" aria-label="Hình ảnh team">
+      <header>
+        <h2>Khoảnh khắc trao quà</h2>
+      </header>
+      <div class="gallery-strip">
+        <figure><img src="images/web/01.jpg" alt="Đồng nghiệp cùng giữ túi quà Happy Women’s Day" /></figure>
+        <figure><img src="images/web/02.jpg" alt="Trao quà ngày Phụ nữ Việt Nam trong văn phòng" /></figure>
+        <figure><img src="images/web/03.jpg" alt="Nụ cười cùng món quà 20-10" /></figure>
+        <figure><img src="images/web/04.jpg" alt="Team AxsPlano &amp; SDA chúc mừng 20-10" /></figure>
+        <figure><img src="images/web/05.jpg" alt="Khoảnh khắc ấm áp ngày lễ 20-10" /></figure>
+      </div>
+    </section>
+
+    <footer class="site">
+      <p><strong>AxsPlano &amp; SDA</strong> — Happy Women’s Day 20/10</p>
+      <p>Tặng những điều tuyệt vời nhất cho thế giới.</p>
+    </footer>
+  </main>
+
+  <script>
+    const SEGMENTS = [
+      {
+        id: "intro",
+        title: "Mở đầu",
+        start: 0,
+        duration: 13.776,
+        text: "Xin chào mọi người. Đây là podcast đặc biệt của team AxsPlano và SDA, gửi đến toàn thể chị em nhân ngày Phụ nữ Việt Nam hai mươi tháng mười. Cảm ơn các bạn đã dành thời gian lắng nghe những lời chúc chân thành từ cả đội."
+      },
+      {
+        id: "moment",
+        title: "Khoảnh khắc trong team",
+        start: 13.776,
+        duration: 13.224,
+        text: "Hôm nay, không khí văn phòng rộn ràng hơn thường ngày. Từng món quà được trao tay, từng nụ cười được ghi lại. Những khoảnh khắc nhỏ ấy chính là điều làm team chúng ta gần nhau hơn, và khiến công việc mỗi ngày trở nên ấm áp."
+      },
+      {
+        id: "wish-core",
+        title: "Lời chúc từ team",
+        start: 27.0,
+        duration: 18.432,
+        text: "Nhân ngày hai mươi tháng mười, team AxsPlano và SDA xin gửi lời chúc tốt đẹp nhất tới tất cả chị em trong team. Cảm ơn các bạn vì sự tận tâm, sự thông minh, và vì những đóng góp thầm lặng nhưng rất lớn cho dự án. Chúc các bạn luôn mạnh mẽ, tự tin, và được hạnh phúc theo cách riêng của mình."
+      },
+      {
+        id: "wish-more",
+        title: "Tặng những điều tuyệt vời",
+        start: 45.432,
+        duration: 15.0,
+        text: "Tặng những điều tuyệt vời nhất cho thế giới. Đó không chỉ là dòng chữ trên túi quà, mà còn là lời nhắn từ cả team: các bạn chính là phần tuyệt vời ấy. Chúc mọi điều may mắn, sức khỏe dồi dào, và thật nhiều niềm vui trong công việc cũng như cuộc sống."
+      },
+      {
+        id: "outro",
+        title: "Kết thúc",
+        start: 60.432,
+        duration: 18.192,
+        text: "Một lần nữa, AxsPlano và SDA chúc mừng ngày Phụ nữ Việt Nam. Cảm ơn chị em đã luôn đồng hành, sẻ chia và tạo nên một tập thể đáng tự hào. Chúc cả team một ngày hai mươi mười thật ấm áp. Hẹn gặp lại trong những tập podcast tới. Happy Women's Day!"
+      }
+    ];
+
+    const audio = document.getElementById("audio");
+    const playBtn = document.getElementById("playBtn");
+    const heroPlay = document.getElementById("heroPlay");
+    const seek = document.getElementById("seek");
+    const currentTimeEl = document.getElementById("currentTime");
+    const durationEl = document.getElementById("duration");
+    const segTitle = document.getElementById("segTitle");
+    const segLabel = document.getElementById("segLabel");
+    const stageImages = [...document.querySelectorAll(".stage img")];
+    const segmentList = document.getElementById("segments");
+    const wishGrid = document.getElementById("wishGrid");
+
+    let activeIndex = 0;
+    let seeking = false;
+
+    function formatTime(sec) {
+      if (!Number.isFinite(sec)) return "0:00";
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m}:${String(s).padStart(2, "0")}`;
+    }
+
+    function indexForTime(t) {
+      let idx = 0;
+      for (let i = 0; i < SEGMENTS.length; i++) {
+        if (t >= SEGMENTS[i].start) idx = i;
+      }
+      return idx;
+    }
+
+    function setActiveSegment(idx, force) {
+      if (!force && idx === activeIndex) return;
+      activeIndex = idx;
+      stageImages.forEach((img, i) => img.classList.toggle("active", i === idx));
+      segTitle.textContent = SEGMENTS[idx].title;
+      segLabel.textContent = `Phần ${idx + 1} / ${SEGMENTS.length}`;
+      [...segmentList.children].forEach((li, i) => {
+        li.querySelector("button").classList.toggle("active", i === idx);
+      });
+    }
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    function syncPlayUi() {
+      const playing = !audio.paused;
+      playBtn.textContent = playing ? "Tạm dừng" : "Phát";
+      heroPlay.textContent = playing ? "Đang phát…" : "Phát podcast";
+    }
+
+    SEGMENTS.forEach((seg, i) => {
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.innerHTML = `<span class="seg-title">${seg.title}</span><span class="seg-time">${formatTime(seg.start)}</span>`;
+      btn.addEventListener("click", () => {
+        audio.currentTime = seg.start + 0.05;
+        setActiveSegment(i, true);
+        audio.play();
+      });
+      li.appendChild(btn);
+      segmentList.appendChild(li);
+
+      const card = document.createElement("article");
+      card.className = "wish-card";
+      card.innerHTML = `<h3>${seg.title}</h3><p>${seg.text}</p>`;
+      wishGrid.appendChild(card);
+    });
+
+    playBtn.addEventListener("click", togglePlay);
+    heroPlay.addEventListener("click", () => {
+      document.querySelector(".player-section").scrollIntoView({ behavior: "smooth", block: "start" });
+      if (audio.paused) audio.play();
+    });
+
+    document.getElementById("backBtn").addEventListener("click", () => {
+      audio.currentTime = Math.max(0, audio.currentTime - 10);
+    });
+    document.getElementById("fwdBtn").addEventListener("click", () => {
+      audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 10);
+    });
+
+    audio.addEventListener("play", syncPlayUi);
+    audio.addEventListener("pause", syncPlayUi);
+    audio.addEventListener("loadedmetadata", () => {
+      durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (!seeking && audio.duration) {
+        seek.value = String(Math.round((audio.currentTime / audio.duration) * 1000));
+      }
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+      setActiveSegment(indexForTime(audio.currentTime));
+    });
+
+    seek.addEventListener("pointerdown", () => { seeking = true; });
+    seek.addEventListener("pointerup", () => { seeking = false; });
+    seek.addEventListener("input", () => {
+      if (!audio.duration) return;
+      const t = (Number(seek.value) / 1000) * audio.duration;
+      audio.currentTime = t;
+      setActiveSegment(indexForTime(t), true);
+    });
+
+    setActiveSegment(0, true);
+    durationEl.textContent = "1:19";
+  </script>
+</body>
+</html>

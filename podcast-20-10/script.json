@@ -1,0 +1,59 @@
+{
+  "title": "Podcast 20-10 · AxsPlano & SDA",
+  "subtitle": "Lời chúc ngày Phụ nữ Việt Nam",
+  "date": "20/10/2026",
+  "team": "AxsPlano & SDA",
+  "segments": [
+    {
+      "id": "intro",
+      "title": "Mở đầu",
+      "image": "images/web/01.jpg",
+      "voice": "vi-VN-HoaiMyNeural",
+      "rate": "+5%",
+      "text": "Xin chào mọi người. Đây là podcast đặc biệt của team AxsPlano và SDA, gửi đến toàn thể chị em nhân ngày Phụ nữ Việt Nam hai mươi tháng mười. Cảm ơn các bạn đã dành thời gian lắng nghe những lời chúc chân thành từ cả đội.",
+      "duration": 13.776,
+      "start": 0
+    },
+    {
+      "id": "moment",
+      "title": "Khoảnh khắc trong team",
+      "image": "images/web/02.jpg",
+      "voice": "vi-VN-NamMinhNeural",
+      "rate": "+5%",
+      "text": "Hôm nay, không khí văn phòng rộn ràng hơn thường ngày. Từng món quà được trao tay, từng nụ cười được ghi lại. Những khoảnh khắc nhỏ ấy chính là điều làm team chúng ta gần nhau hơn, và khiến công việc mỗi ngày trở nên ấm áp.",
+      "duration": 13.224,
+      "start": 13.776
+    },
+    {
+      "id": "wish-core",
+      "title": "Lời chúc từ team",
+      "image": "images/web/03.jpg",
+      "voice": "vi-VN-HoaiMyNeural",
+      "rate": "+3%",
+      "text": "Nhân ngày hai mươi tháng mười, team AxsPlano và SDA xin gửi lời chúc tốt đẹp nhất tới tất cả chị em trong team. Cảm ơn các bạn vì sự tận tâm, sự thông minh, và vì những đóng góp thầm lặng nhưng rất lớn cho dự án. Chúc các bạn luôn mạnh mẽ, tự tin, và được hạnh phúc theo cách riêng của mình.",
+      "duration": 18.432,
+      "start": 27.0
+    },
+    {
+      "id": "wish-more",
+      "title": "Tặng những điều tuyệt vời",
+      "image": "images/web/04.jpg",
+      "voice": "vi-VN-NamMinhNeural",
+      "rate": "+3%",
+      "text": "Tặng những điều tuyệt vời nhất cho thế giới. Đó không chỉ là dòng chữ trên túi quà, mà còn là lời nhắn từ cả team: các bạn chính là phần tuyệt vời ấy. Chúc mọi điều may mắn, sức khỏe dồi dào, và thật nhiều niềm vui trong công việc cũng như cuộc sống.",
+      "duration": 15.0,
+      "start": 45.432
+    },
+    {
+      "id": "outro",
+      "title": "Kết thúc",
+      "image": "images/web/05.jpg",
+      "voice": "vi-VN-HoaiMyNeural",
+      "rate": "+5%",
+      "text": "Một lần nữa, AxsPlano và SDA chúc mừng ngày Phụ nữ Việt Nam. Cảm ơn chị em đã luôn đồng hành, sẻ chia và tạo nên một tập thể đáng tự hào. Chúc cả team một ngày hai mươi mười thật ấm áp. Hẹn gặp lại trong những tập podcast tới. Happy Women's Day!",
+      "duration": 18.192,
+      "start": 60.432
+    }
+  ],
+  "totalDuration": 78.624
+}
