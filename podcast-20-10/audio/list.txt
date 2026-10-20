@@ -1,5 +1,0 @@
-file '00_intro.mp3'
-file '01_moment.mp3'
-file '02_wish-core.mp3'
-file '03_wish-more.mp3'
-file '04_outro.mp3'
